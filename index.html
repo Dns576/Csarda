@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halászcsárda Százhalombatta</title>
+    <meta name="description" content="A Halászcsárda családunk kezébe 1987-ben szerződéses üzletként került.">
+    
+    <style>
+        /* Modern, simplified CSS with riverside Hungarian restaurant theme */
+        :root {
+            --primary-color: #446e3f; /* Forest green */
+            --secondary-color: #61372e; /* Rich wood brown */
+            --accent-color: #e8d9c0; /* Light parchment */
+            --text-color: #332f29; /* Dark wood */
+            --light-bg: #f5f1e8; /* Light cream */
+            --river-blue: #4a7d9b; /* River blue */
+            --river-dark: #2c4a5c; /* Dark river blue */
+            --water-blue: rgba(74, 125, 155, 0.15); /* Water blue with transparency */
+            --water-light: rgba(226, 240, 245, 0.9); /* Light water color */
+            --highlight-color: #e8a23d; /* Golden highlight */
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            background-image: url('https://img.freepik.com/free-photo/blurred-background-blur-restaurant-cafe-interior-banner_1484-4462.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-family: 'Merienda', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://img.freepik.com/free-photo/wooden-board-empty-table-top-blurred-background_1253-1584.jpg');
+            background-size: cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 5px solid var(--white);
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Merienda', serif;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        .about {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+        
+        .about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://img.freepik.com/free-photo/wooden-planks-with-blurred-restaurant-background_1253-56.jpg');
+            background-size: cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .toggle-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .toggle-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .toggle-button:hover {
+            background-color: #355431;
+        }
+        
+        .menu-section {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+        
+        .menu-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://img.freepik.com/free-photo/wooden-board-empty-table-top-blurred-background_1253-1584.jpg');
+            background-size: cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .menu-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 0;
+            position: sticky;
+            top: 70px;
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 15px 10px;
+            z-index: 99;
+            border-top: 2px solid var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        
+        .menu-nav::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .menu-nav::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .menu-nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            background-color: var(--accent-color);
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-weight: 500;
+            display: inline-block;
+            border: 1px solid transparent;
+        }
+        
+        .menu-nav a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .menu-nav a:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        
+        .menu-nav a:first-child {
+            background-color: var(--highlight-color);
+            color: var(--white);
+            font-weight: 700;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .menu-category {
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .menu-category.featured {
+            background-color: rgba(226, 240, 245, 0.9); /* Light blue background */
+            border-left: 5px solid var(--highlight-color);
+            border-right: 5px solid var(--highlight-color);
+            margin-top: 30px;
+            margin-bottom: 50px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transform: scale(1.02);
+            z-index: 2;
+        }
+        
+        .menu-category.featured::before {
+            content: "";
+            position: absolute;
+            top: 10%;
+            left: 0;
+            right: 0;
+            bottom: 10%;
+            background-image: url('https://img.freepik.com/free-vector/silhouette-fish-collection_53876-90415.jpg');
+            background-size: 400px;
+            background-position: right top;
+            opacity: 0.06;
+            z-index: 0;
+        }
+        
+        .menu-category.featured h3 {
+            color: var(--highlight-color);
+            font-size: 1.8rem;
+            border-bottom: 2px dashed var(--highlight-color);
+            position: relative;
+        }
+        
+        .menu-category.featured h3::before {
+            content: "★";
+            position: absolute;
+            left: -25px;
+            color: var(--highlight-color);
+        }
+        
+        .menu-category.featured h3::after {
+            content: "★";
+            position: absolute;
+            right: -25px;
+            color: var(--highlight-color);
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .menu-item::before {
+            content: "✦";
+            position: absolute;
+            left: -15px;
+            color: var(--primary-color);
+            opacity: 0.7;
+        }
+        
+        .menu-item-name {
+            font-weight: 500;
+            padding-right: 10px;
+        }
+        
+        .menu-item-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+        
+        .menu-item.featured {
+            border-bottom: 1px dashed rgba(232, 162, 61, 0.4);
+        }
+        
+        .menu-item.featured::before {
+            color: var(--highlight-color);
+            content: "★";
+        }
+        
+        .menu-item.featured .menu-item-price {
+            color: var(--highlight-color);
+            font-size: 1.1rem;
+        }
+        
+        .gallery {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+            position: relative;
+        }
+        
+        .gallery::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://img.freepik.com/free-photo/abstract-blur-defocused-restaurant-coffee-shop-cafe-interior_1203-9216.jpg');
+            background-size: cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            border: 3px solid var(--white);
+        }
+        
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+        
+        .contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://img.freepik.com/free-photo/wooden-board-empty-table-top-blurred-background_1253-1584.jpg');
+            background-size: cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--primary-color);
+            background-image: url('https://img.freepik.com/free-photo/white-paper-texture_1194-5998.jpg');
+            background-size: cover;
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 15px;
+            border-bottom: none;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+            background-image: url('https://img.freepik.com/free-photo/dark-wooden-texture_1194-6668.jpg');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+        
+        /* Small devices */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .menu-nav {
+                overflow: hidden;
+                justify-content: center;
+                padding: 10px 5px;
+                top: 90px;
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 6px;
+                white-space: normal;
+                max-height: none;
+            }
+            
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu-section {
+                padding-top: 180px;
+            }
+            
+            .menu-category {
+                scroll-margin-top: 180px;
+            }
+            
+            .menu-category.featured {
+                margin-top: 20px;
+            }
+            
+            .menu-nav a {
+                padding: 5px 8px;
+                font-size: 0.8rem;
+                margin: 0;
+                width: 100%;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                border-radius: 12px;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .menu-nav {
+                top: 110px;
+                padding: 6px 4px;
+                gap: 3px;
+                grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .menu-nav a {
+                padding: 3px 4px;
+                font-size: 0.65rem;
+                border-radius: 8px;
+            }
+            
+            .menu-section {
+                padding-top: 180px;
+            }
+            
+            .menu-category {
+                scroll-margin-top: 200px;
+                padding: 20px 15px;
+            }
+            
+            .menu-category.featured {
+                margin-top: 15px;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            .menu-item {
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Very small devices */
+        @media (max-width: 360px) {
+            .menu-nav {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 2px;
+                padding: 4px 2px;
+                top: 100px;
+            }
+            
+            .menu-nav a {
+                padding: 1px 2px;
+                font-size: 0.5rem;
+                border-radius: 5px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            }
+            
+            .menu-section {
+                padding-top: 210px;
+            }
+            
+            .menu-category {
+                scroll-margin-top: 210px;
+            }
+            
+            .menu-category.featured {
+                margin-top: 10px;
+            }
+        }
+    </style>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Halászcsárda</a>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Főoldal</a></li>
+                        <li><a href="#about">Rólunk</a></li>
+                        <li><a href="#menu">Étlap</a></li>
+                        <li><a href="#gallery">Galéria</a></li>
+                        <li><a href="#contact">Kapcsolat</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <img src="https://halaszcsarda.com/wp-content/uploads/2025/02/halaszcsarda-1024x719.jpg" alt="Halászcsárda">
+            <h1>Százhalombattai Halászcsárda</h1>
+            <p>Tradicionális magyar ízek modern környezetben</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Rólunk</h2>
+            <div class="about-content">
+                <p>A százhalombattai <strong>Halászcsárda</strong> családunk kezébe 1987-ben szerződéses üzletként került. A békebeli hűtőgépek több áramot fogyasztottak, mint egy villanymozdony, a régi kazánoknak pedig nem minidig volt kedvük meleget adni… és nekivágtunk!</p>
+                <p>A munka elindult, kinyitott a Halászcsárda!</p>
+                
+                <div class="toggle-content" id="more-content">
+                    <p>Hamar rádöbbentünk, hogy a vendégek számára fontos, hogy lássák, hogy mindig épül, szépül valami az üzletben. Az ő véleményükre adva formáltuk a kínálatot, a mennyiséget és a minőséget.</p>
+                    <p>Egyre több pozitív kritika ért bennünket. Sok áldozatot hoztunk, de amikor egy kedves vendég megdicsér bennünket, körvonalazódik bennünk: ma is megérte felkelni, bejönni, dolgozni és csinálni ezt az egészet tiszta szívünkből.</p>
+                    <p>Nálunk tényleg a VENDÉG az első!</p>
+                </div>
+                
+                <a href="#" class="toggle-button" id="read-more">Olvass tovább</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2>Étlap</h2>
+            
+            <div class="menu-nav">
+                <a href="#havi-ajanlat">Havi Ajánlat</a>
+                <a href="#eloetel">Előételek</a>
+                <a href="#levesek">Levesek</a>
+                <a href="#halak">Hal ételek</a>
+                <a href="#szarnyas">Szárnyas ételek</a>
+                <a href="#serteshus">Sertéshús ételek</a>
+                <a href="#marhahus">Marhahús ételek</a>
+                <a href="#vad">Vad ételek</a>
+                <a href="#vegetarianus">Vegetáriánus ételeink</a>
+                <a href="#tesztak">Tészták</a>
+                <a href="#talak">Tálak</a>
+                <a href="#gyerekeknek">Gyerekeknek</a>
+                <a href="#salatak">Saláták</a>
+                <a href="#koretek">Köretek</a>
+                <a href="#savanyusagok">Savanyúságok</a>
+                <a href="#desszert">Desszertek</a>
+            </div>
+            
+            <div class="menu-category featured" id="havi-ajanlat">
+                <h3>Havi Ajánlat</h3>
+                <div class="menu-items">
+                    <div class="menu-item featured">
+                        <span class="menu-item-name">Sült karfiol krémleves bacon chips-szel</span>
+                        <span class="menu-item-price">1.590.-</span>
+                    </div>
+                    <div class="menu-item featured">
+                        <span class="menu-item-name">Konfitált kacsamell szilva chutney-val és almás krokettel</span>
+                        <span class="menu-item-price">5.990.-</span>
+                    </div>
+                    <div class="menu-item featured">
+                        <span class="menu-item-name">Borjúpaprikás kapros-túrós galuskával</span>
+                        <span class="menu-item-price">5.990.-</span>
+                    </div>
+                    <div class="menu-item featured">
+                        <span class="menu-item-name">Tiramisu</span>
+                        <span class="menu-item-price">1.590.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="eloetel">
+                <h3>Előételek</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Harcsa haltepertő rántott hagymakarikákkal</span>
+                        <span class="menu-item-price">2.890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Tatát beefsteak (12 dkg)</span>
+                        <span class="menu-item-price">4.290.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Rántott velőrózsa tartátmártással</span>
+                        <span class="menu-item-price">3.090.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="levesek">
+                <h3>Levesek</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Filézett pontyhalászlé</span>
+                        <span class="menu-item-price">3.490.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Filézett harcsa halászlé</span>
+                        <span class="menu-item-price">3.490.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Filézett vegyes halászlé</span>
+                        <span class="menu-item-price">3.490.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Kapros harcsaragu leves</span>
+                        <span class="menu-item-price">2.890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Erdei gombaleves</span>
+                        <span class="menu-item-price">1.300.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Házi májgaluska leves</span>
+                        <span class="menu-item-price">1.300.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Csülkös bableves</span>
+                        <span class="menu-item-price">2.550.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Bográcsgulyás</span>
+                        <span class="menu-item-price">2.550.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Falusi jércemell gazdagon</span>
+                        <span class="menu-item-price">1.890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Belsőség</span>
+                        <span class="menu-item-price">990.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="halak">
+                <h3>Hal ételek</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Süllő egészben, citromos vajjal</span>
+                        <span class="menu-item-price">180.-/dkg</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Fogasfilé "kaszás" módra</span>
+                        <span class="menu-item-price">4.590.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Joghurtos fogas friss kevert salátával, citrusos dresszinggel</span>
+                        <span class="menu-item-price">5.590.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Harcsaszeletek tejszínes fokhagymamártással</span>
+                        <span class="menu-item-price">4.450.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Harcsafilé fűszervajas sajttal, újhagymával töltve</span>
+                        <span class="menu-item-price">4.590.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Harcsapaprikás túrós csuszával</span>
+                        <span class="menu-item-price">5.590.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Ponty Orly módra</span>
+                        <span class="menu-item-price">3.950.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Harcsa Orly módra</span>
+                        <span class="menu-item-price">4.090.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Fogas Orly módra</span>
+                        <span class="menu-item-price">4.390.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Filézett rántott ponty</span>
+                        <span class="menu-item-price">3.890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Filézett rántott harcsa</span>
+                        <span class="menu-item-price">3.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Filézett rántott fogas</span>
+                        <span class="menu-item-price">4.290.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Bőrös lazac steak</span>
+                        <span class="menu-item-price">4.290.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Fogas Kárpáti módra csőben sült spárgával</span>
+                        <span class="menu-item-price">6.490.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="szarnyas">
+                <h3>Szárnyas ételek</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Pikáns tejfölben sült csirkemell, friss kevert salátával</span>
+                        <span class="menu-item-price">5.290.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Baconbe tekert csirkemmel steak, sajtmártással</span>
+                        <span class="menu-item-price">3.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Fűszeres csirkefalatkák, steak burgonyával, coleslaw salátával</span>
+                        <span class="menu-item-price">4.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Magvas bundában sült jércemell, baconnel és camamberttel töltve</span>
+                        <span class="menu-item-price">4.150.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Sajttal, sonkával és gombával töltött csirkemell</span>
+                        <span class="menu-item-price">3.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Parmezános pankó morzsábansült jércemell, Mc&Cheese-zel</span>
+                        <span class="menu-item-price">4.790.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Őszibarackkal és sajttal töltött csirkemell mandulás bundában, áfonyával</span>
+                        <span class="menu-item-price">3.990.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="serteshus">
+                <h3>Sertéshús ételek</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Betyáros szűzérmék (roston sült szűzpecsenye tükörtojással, kakastaréj szalonnával)</span>
+                        <span class="menu-item-price">4.090.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Rántott szűzérmék</span>
+                        <span class="menu-item-price">3.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Kárpáti borzaska</span>
+                        <span class="menu-item-price">3.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Sajttal és sonkával töltött sertésborda</span>
+                        <span class="menu-item-price">3.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Vörös chedarral és jalapenoval töltött sertésborda</span>
+                        <span class="menu-item-price">4.490.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Velővel töltött borda</span>
+                        <span class="menu-item-price">3.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Cigánypecsenye</span>
+                        <span class="menu-item-price">3.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Ropogós csülök párolt lilakáposztával, kemencés burgonyával</span>
+                        <span class="menu-item-price">5.490.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Brassói aprópecsenye</span>
+                        <span class="menu-item-price">4.490.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="marhahus">
+                <h3>Marhahús ételek</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Hagymás rostélyos</span>
+                        <span class="menu-item-price">4.590.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Omlós marhaszelet fűszeres steak burgonyával, coleslaw salátával</span>
+                        <span class="menu-item-price">5.690.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Bélszín steak tejszínes vargányás raguval, burgonyakrokettel</span>
+                        <span class="menu-item-price">8.190.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Marhapörkölt</span>
+                        <span class="menu-item-price">3.690.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Pacalpörkölt</span>
+                        <span class="menu-item-price">3.490.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="vad">
+                <h3>Vad ételek</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Vörösboros szarvaspörkölt</span>
+                        <span class="menu-item-price">3.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Szarvas lángos (Erdei gombás szarvas ragu tócsniban tálalva)</span>
+                        <span class="menu-item-price">5.090.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="vegetarianus">
+                <h3>Vegetáriánus ételeink</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Roston sült camambert kapros-joghurtos színes salátával</span>
+                        <span class="menu-item-price">4.190.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Rántott trappista sajt, tartármártással</span>
+                        <span class="menu-item-price">2.890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Camambert rántva, áfonyával</span>
+                        <span class="menu-item-price">2.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Gombafejek rántva, tartármártással</span>
+                        <span class="menu-item-price">2.500.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="tesztak">
+                <h3>Tészták</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Túrós csusza</span>
+                        <span class="menu-item-price">2.190.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Sztrapacska</span>
+                        <span class="menu-item-price">2.090.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Bolognai spagetti</span>
+                        <span class="menu-item-price">3.590.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Lazacos tejszínes tészta</span>
+                        <span class="menu-item-price">4.690.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="talak">
+                <h3>Tálak</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">1 emberes fatányéros (Cigánypecsenye, kapros juhtúróval töltött sertésborda, roston sült csirkemell, kemencés burgonya, csalamádé)</span>
+                        <span class="menu-item-price">5.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Kacsatál (2 darab kacsacomb kemencés burgonyával, párolt lilakáposztával)</span>
+                        <span class="menu-item-price">5.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">2 személyes halastál (Pisztráng, rántott ponty, orly harcsa, petrezselymes burgonya, párolt rizs)</span>
+                        <span class="menu-item-price">10.490.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">2 személyes csárdatál (Betyáros szűz, kacsacomb, borzas szeletek, rántott sajt, kemencés burgonya, párolt rizs, csalamádé)</span>
+                        <span class="menu-item-price">9.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">2 személyes csárdatorony (Bélszín szelet, fűszeres csirkemell, borsos szűzpecsenye, pikáns tejfölben pácolt csirkemell, sült debreceni kolbász, grillezett zöldségek, steak burgonya, friss saláta)</span>
+                        <span class="menu-item-price">9.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">2 személyes "JóllakTÁL" (Fűszervajas harcsa, vörös chedarral és jalapenoval töltött sertéskaraj, roston sült fűszeres csirkemell, roston sült camambert kapros-joghurtos színes salátával, párolt rizs, steak burgonya)</span>
+                        <span class="menu-item-price">9.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Koppánytál 4 személyre (Orly csirkemell, sajttal sonkával töltött borda, cigánypecsenye, csirkerolád-sajttal, zöldborsóval töltött, baconbe tekert csirkemell roston sütve-, petrezselymes burgonya, rizibizi)</span>
+                        <span class="menu-item-price">19.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Hétvégi tál 4 személyre (Cordon Bleu, baconös csirkemell, rántott harcsafilé, szezámmagos csirkemell, petrezselymes burgonya, párolt rizs, csalamádé)</span>
+                        <span class="menu-item-price">18.190.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="gyerekeknek">
+                <h3>Gyerekeknek</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Rántott csirkemell csíkok hasábburgonyával</span>
+                        <span class="menu-item-price">1990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Rántott sajt hasábburgonyával</span>
+                        <span class="menu-item-price">1.990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Bolognai spagetti</span>
+                        <span class="menu-item-price">1.990.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="salatak">
+                <h3>Saláták</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Görög saláta</span>
+                        <span class="menu-item-price">1.490.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Friss kevert saláta citrusos dresszinggel</span>
+                        <span class="menu-item-price">1.790.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Cézár saláta csirkével vagy rákkal</span>
+                        <span class="menu-item-price">3.590.- / 4.890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Coleslaw saláta</span>
+                        <span class="menu-item-price">1.290.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="koretek">
+                <h3>Köretek</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Hasábburgonya</span>
+                        <span class="menu-item-price">990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Fűszeres steak burgonya</span>
+                        <span class="menu-item-price">990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Petrezselymes burgonya</span>
+                        <span class="menu-item-price">990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Burgonya püré</span>
+                        <span class="menu-item-price">990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Sült édesburgonya gerezdek</span>
+                        <span class="menu-item-price">1.390.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Galuska</span>
+                        <span class="menu-item-price">990.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Grillezett zöldségek</span>
+                        <span class="menu-item-price">1.640.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="savanyusagok">
+                <h3>Savanyúságok</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Káposztasaláta</span>
+                        <span class="menu-item-price">890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Uborkasaláta</span>
+                        <span class="menu-item-price">890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Paradicsomsaláta</span>
+                        <span class="menu-item-price">890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Csemege uborka</span>
+                        <span class="menu-item-price">890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Házi csalamádé</span>
+                        <span class="menu-item-price">890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Kovászos uborka</span>
+                        <span class="menu-item-price">990.-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" id="desszert">
+                <h3>Desszertek</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="menu-item-name">Somlói galuska</span>
+                        <span class="menu-item-price">1.590.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Túró gombóc</span>
+                        <span class="menu-item-price">1.890.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Gundel palacsinta</span>
+                        <span class="menu-item-price">1.390.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Túrós palacsinta vanília öntettel</span>
+                        <span class="menu-item-price">1.490.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Nutellás palacsinta</span>
+                        <span class="menu-item-price">1.090.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Fagylalt kehely</span>
+                        <span class="menu-item-price">1.190.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Gesztenyepüré</span>
+                        <span class="menu-item-price">1.220.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Csokoládé szuflé áfonyával, vanília fagylalttal</span>
+                        <span class="menu-item-price">1.790.-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Túrós-fehércsokoládés panna cotta, eperpürével, házi kekszmorzsával</span>
+                        <span class="menu-item-price">1.790.-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Galéria</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://halaszcsarda.com/wp-content/uploads/2023/09/bg-pic4.jpg" alt="Halászcsárda">
+                </div>
+                <!-- More gallery items would go here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Kapcsolat</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Cím</h3>
+                    <p>Strand u. 2-4<br>2440 Százhalombatta<br>Magyarország</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Nyitvatartás</h3>
+                    <p>Hétfő - Vasárnap<br>11:00 - 21:00</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Elérhetőség</h3>
+                    <p>Telefon: +36 23 355 862<br>Email: info@halaszcsarda.com</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/halaszcsarda.szazhalombattai" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Halászcsárda Százhalombatta. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple toggle functionality for "Read more"
+        document.addEventListener('DOMContentLoaded', function() {
+            const moreContent = document.getElementById('more-content');
+            const readMoreBtn = document.getElementById('read-more');
+            
+            readMoreBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (moreContent.style.maxHeight) {
+                    moreContent.style.maxHeight = null;
+                    readMoreBtn.textContent = 'Olvass tovább';
+                } else {
+                    moreContent.style.maxHeight = moreContent.scrollHeight + 'px';
+                    readMoreBtn.textContent = 'Bezár';
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Get current viewport width
+                        const viewportWidth = window.innerWidth;
+                        
+                        // Adjust offset based on screen size
+                        let offset;
+                        if (viewportWidth <= 360) {
+                            // Very small devices
+                            offset = 400;
+                        } else if (viewportWidth <= 480) {
+                            // Extra small devices
+                            offset = 280;
+                        } else if (viewportWidth <= 768) {
+                            // Small devices
+                            offset = 260;
+                        } else if (viewportWidth <= 1024) {
+                            // Medium devices (tablets)
+                            offset = 270;
+                        } else {
+                            // Large devices
+                            offset = 210;
+                        }
+                        
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Run once on page load to ensure proper initial scroll position
+            if (window.location.hash) {
+                const targetElement = document.querySelector(window.location.hash);
+                if (targetElement) {
+                    setTimeout(() => {
+                        // Get current viewport width
+                        const viewportWidth = window.innerWidth;
+                        
+                        // Adjust offset based on screen size
+                        let offset;
+                        if (viewportWidth <= 360) {
+                            // Very small devices
+                            offset = 400;
+                        } else if (viewportWidth <= 480) {
+                            // Extra small devices
+                            offset = 280;
+                        } else if (viewportWidth <= 768) {
+                            // Small devices
+                            offset = 260;
+                        } else if (viewportWidth <= 1024) {
+                            // Medium devices (tablets)
+                            offset = 270;
+                        } else {
+                            // Large devices
+                            offset = 210;
+                        }
+                        
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                }
+            } else {
+                // If no hash in URL, scroll to monthly special after page loads
+                setTimeout(() => {
+                    const menuSection = document.getElementById('menu');
+                    if (menuSection) {
+                        // Get current viewport width
+                        const viewportWidth = window.innerWidth;
+                        
+                        // Adjust offset based on screen size
+                        let offset;
+                        if (viewportWidth <= 360) {
+                            // Very small devices
+                            offset = 400;
+                        } else if (viewportWidth <= 480) {
+                            // Extra small devices
+                            offset = 280;
+                        } else if (viewportWidth <= 768) {
+                            // Small devices
+                            offset = 260;
+                        } else if (viewportWidth <= 1024) {
+                            // Medium devices (tablets)
+                            offset = 270;
+                        } else {
+                            // Large devices
+                            offset = 210;
+                        }
+                        
+                        const elementPosition = menuSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html> 
